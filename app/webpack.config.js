@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: {
     index: "./index.js",
-
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -45,6 +44,11 @@ module.exports = {
       chunks: ["index", "main"],
       filename: "index.html",
     }),
+    new HtmlWebpackPlugin({
+      template: "./list.html",
+      chunks: ["index"],
+      filename: "list.html"
+    })
   ],
   devServer: {
     static: "./dist",
